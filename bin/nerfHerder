@@ -1,0 +1,17 @@
+#!/usr/local/bin/node
+var NerfHerder = require('../lib/nerfHerder');
+var argv = require('optimist')
+            .usage('nerfHerder -d MONGO_CONNECTION_STRING -f PATH_TO_CONFIG')
+            .default('d', 'mongodb://localhost:27017/local')
+            .argv;
+
+var config = undefined;
+//console.dir(process);
+
+if (argv.f){
+    config = require([process.env.PWD, argv.f].join('/'));
+}
+
+var nf = new NerfHerder(argv.d, config);
+
+setTimeout(function(){nf.stopPolling();}, 5000);

@@ -1,0 +1,17 @@
+{
+  "name": "nerfHerder",
+  "version": "0.0.0",
+  "description": "A companion service to mongod to keep long running queries from wrecking havoc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "mongo"
+  ],
+  "author": "DAn THurman",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "fa2b20f22e2000891216383e9f8929253217a511"
+}
