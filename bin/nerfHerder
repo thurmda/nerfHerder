@@ -13,5 +13,14 @@ if (argv.f){
 }
 
 var nf = new NerfHerder(argv.d, config);
-
+nf.on('polling', print);
+nf.on('destroy', eprint);
 setTimeout(function(){nf.stopPolling();}, 5000);
+
+
+function eprint(){
+console.log('destroyed');
+}
+function print(){
+console.log('polling');
+}

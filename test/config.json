@@ -1,6 +1,0 @@
-{
-"maxExecutionTime" : 5000, 
-"interval" : 1000,
-"lifetime" : 2000,
-"excludeCollections" : []
-}

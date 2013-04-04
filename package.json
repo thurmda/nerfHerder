@@ -2,9 +2,9 @@
   "name": "nerfHerder",
   "version": "0.0.0",
   "description": "A companion service to mongod to keep long running queries from wrecking havoc",
-  "main": "index.js",
+  "main": "lib/nerfHerder.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nodeunit test/*.js"
   },
   "repository": "",
   "keywords": [
