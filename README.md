@@ -5,8 +5,8 @@ Every so often `(config.interval)` nerfHerder will poll mongo to find a list of
 current operations. nerfHerder will then loop through each operation and
 evaluate each rule in `config.rules`. Each λ rule has the operation set as the
 context `this`. The λ can due whatever logic it wants  and then return a
-thruthy value. `true` means a process lives, `false` means `killOp` will be
-called to kill it.
+thruthy value. `true` means the nerf lives, `false` means the nerf dies, 
+`killOp` will be called to kill it.
 
 ## Install
 
