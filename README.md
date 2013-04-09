@@ -1,4 +1,4 @@
 Nerf Herder
 
 
-A companion service to mongod to keep long running queries from wrecking havoc
+A companion service to mongod to keep long running queries from causing chaos.

@@ -10,8 +10,11 @@
   "keywords": [
     "mongo"
   ],
-  "author": "DAn THurman",
+  "dependencies": {
+    "mongodb" : "~0.9.9-7",
+    "optimist" : "~0.3.4"
+  }
+  "author": "Dan Thurman",
   "license": "BSD",
-  "readmeFilename": "README.md",
-  "gitHead": "fa2b20f22e2000891216383e9f8929253217a511"
+  "readmeFilename": "README.md"
 }
