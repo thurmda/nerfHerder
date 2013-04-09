@@ -5,15 +5,15 @@ A companion service to mongod to keep long running queries from causing chaos.
 ## Install
 
 ````bash
-    git clone git@github.com:thurmda/nerfHerder.git
-    npm install
-    npm test
+git clone git@github.com:thurmda/nerfHerder.git
+npm install
+npm test
 ````
 
 ## Usage
 
 ````bash
-    nerfHerder -d MONGO_CONNECTION_STRING -f PATH_TO_CONFIG
+nerfHerder -d MONGO_CONNECTION_STRING -f PATH_TO_CONFIG
 ````
 
 ### config
