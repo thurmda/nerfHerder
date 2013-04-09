@@ -1,7 +1,7 @@
 # Nerf Herder
 
 A companion service to mongod to keep long running queries from causing chaos.
-Every so often `(config.interval)` nerfHerder will poll mongo to find a list of
+Every so often `config.interval` nerfHerder will poll mongo to find a list of
 current operations. nerfHerder will then loop through each operation and
 evaluate each rule in `config.rules`. Each λ rule has the operation set as the
 context `this`. The λ can due whatever logic it wants  and then return a
@@ -20,6 +20,10 @@ npm test
 
 ````bash
 nerfHerder -d MONGO_CONNECTION_STRING -f PATH_TO_CONFIG
+````
+example
+````bash
+nerfHerder -d mongodb://localhost:27017/local -f test/config/config.js
 ````
 
 ### config
