@@ -1,20 +1,19 @@
 {
-  "name": "nerfHerder",
-  "version": "0.0.0",
-  "description": "A companion service to mongod to keep long running queries from wrecking havoc",
-  "main": "lib/nerfHerder.js",
-  "scripts": {
-    "test": "nodeunit test/*.js"
-  },
-  "repository": "",
-  "keywords": [
-    "mongo"
-  ],
-  "dependencies": {
-    "mongodb" : "~0.9.9-7",
-    "optimist" : "~0.3.4"
-  }
-  "author": "Dan Thurman",
-  "license": "BSD",
-  "readmeFilename": "README.md"
+    "name": "nerfHerder",
+    "version": "0.0.0",
+    "description": "A companion service to mongod to keep long running queries from wrecking havoc",
+    "author": "Dan Thurman",
+    "license": "BSD",
+    "readmeFilename": "README.md",
+    "main": "lib/nerfHerder.js",
+    "scripts": {
+            "test": "nodeunit test/*.js"
+        },
+    "keywords": [
+            "mongo"
+            ],
+    "dependencies": {
+            "mongodb" : "~0.9.9-7",
+            "optimist" : "~0.3.4"
+        }
 }
