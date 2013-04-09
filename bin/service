@@ -1,0 +1,2 @@
+(bin/nerfHerder $1 $2 2>&1 & echo $! >&3) 3>pid/service.pid |logger -t nerfHerder &
+disown

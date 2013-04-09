@@ -6,21 +6,15 @@ var argv = require('optimist')
             .argv;
 
 var config = undefined;
-//console.dir(process);
 
 if (argv.f){
     config = require([process.env.PWD, argv.f].join('/'));
 }
 
 var nf = new NerfHerder(argv.d, config);
-nf.on('polling', print);
-nf.on('destroy', eprint);
-setTimeout(function(){nf.stopPolling();}, 5000);
+//nf.on('polling', print);
+nf.on('cull', function(id){console.error('Nerf Herder killing mongo process %d', id);});
+
+nf.on('destroy', function(){console.log('Nerf Herder polling stopped');});
 
 
-function eprint(){
-console.log('destroyed');
-}
-function print(){
-console.log('polling');
-}
