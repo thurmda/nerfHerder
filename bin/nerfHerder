@@ -7,6 +7,7 @@ var argv = require('optimist')
 
 var config = undefined;
 
+
 if (argv.f){
     config = require([process.env.PWD, argv.f].join('/'));
 }
