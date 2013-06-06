@@ -1,2 +1,48 @@
-(bin/nerfHerder $1 $2 2>&1 & echo $! >&3) 3>pid/service.pid |logger -t nerfHerder &
-disown
+#!/bin/bash
+echo $1 $2 $3 $4 $5
+
+function start_app {
+    (bin/nerfHerder $2 $3 2>&1 & echo $! >&3) 3>pid/service.pid |logger -t nerfHerder &
+    disown
+}
+function stop_app {
+    echo "stopping"
+    kill `cat pid/service.pid`
+}
+function status_app {
+    local running=0
+    for PID in pid/*.pid
+    do
+       local pid=`cat $PID`
+       if kill -0 $pid > /dev/null 2>&1;
+       then
+            echo "PID $pid in file $PID is running" >&2
+       else
+            echo "PID $pid in file $PID is NOT RUNNING!" >&2
+            running=`expr $running + 1`
+       fi
+    done
+    if [ $running != "0" ];
+    then
+        exit $running
+    fi
+}
+
+case $1 in
+   start)
+         start_app
+         status_app ;;
+   stop)
+         stop_app
+         status_app
+         ;;
+   restart)
+         stop_app
+         start_app
+         status_app ;;
+   status)
+         status_app ;;
+    *)
+   echo "usage: service {start|stop|restart}" ;;
+        esac
+        exit 0

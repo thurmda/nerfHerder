@@ -10,11 +10,18 @@ var config = undefined;
 if (argv.f){
     config = require([process.env.PWD, argv.f].join('/'));
 }
-
+console.log('Nerf Herder on Duty \n%s', argv.d);
+//console.dir(config);
 var nf = new NerfHerder(argv.d, config);
-//nf.on('polling', print);
-nf.on('cull', function(id){console.error('Nerf Herder killing mongo process %d', id);});
+console.dir(nf.options);
 
+nf.on('cull', function(id){console.error('Nerf Herder killing mongo process %d', id);});
 nf.on('destroy', function(){console.log('Nerf Herder polling stopped');});
 
 
+/*
+process.on('exit', function(){
+    console.log('Nerf Herder on Duty \n%s', argv.d);
+    return true;
+});
+*/
