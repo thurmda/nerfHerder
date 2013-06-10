@@ -4,25 +4,9 @@ var argv = require('optimist')
             .usage('nerfHerder -d MONGO_CONNECTION_STRING -f PATH_TO_CONFIG')
             .default('d', 'mongodb://localhost:27017/local')
             .argv;
-
-var config = undefined;
-
-
+var config;
 if (argv.f){
     config = require([process.env.PWD, argv.f].join('/'));
 }
-console.log('Nerf Herder on Duty \n%s', argv.d);
-//console.dir(config);
+
 var nf = new NerfHerder(argv.d, config);
-console.dir(nf.options);
-
-nf.on('polling', function(){console.log('****************** polling ******************');});
-nf.on('cull', function(id){console.error('Nerf Herder killing mongo process %d', id);});
-nf.on('burried', function(id){console.error('Nerf Herder burried mongo process %d', id);});
-nf.on('destroy', function(){console.log('Nerf Herder polling stopped');});
-
-
-process.on('exit', function(){
-    console.log('Nerf Herder on Duty \n%s', argv.d);
-    return true;
-});
