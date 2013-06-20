@@ -16,13 +16,13 @@ console.log('Nerf Herder on Duty \n%s', argv.d);
 var nf = new NerfHerder(argv.d, config);
 console.dir(nf.options);
 
+nf.on('polling', function(){console.log('****************** polling ******************');});
 nf.on('cull', function(id){console.error('Nerf Herder killing mongo process %d', id);});
+nf.on('burried', function(id){console.error('Nerf Herder burried mongo process %d', id);});
 nf.on('destroy', function(){console.log('Nerf Herder polling stopped');});
 
 
-/*
 process.on('exit', function(){
     console.log('Nerf Herder on Duty \n%s', argv.d);
     return true;
 });
-*/
