@@ -1,10 +1,10 @@
 module.exports = {
 "interval" : 2 * 1000,
 "rules" : [
-            function(){ 
+            function(op){ 
                 if(
-                    this.ns === "twisk.t1" &&
-                    this.secs_running > 2 //Our LB has already timed out this request making this op an orpah
+                    op.ns === "twisk.t1" &&
+                    op.secs_running > 2 //Our LB has already timed out this request making this op an orpah
                    ){
                     return false;
                 }else{
