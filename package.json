@@ -1,6 +1,6 @@
 {
   "name": "nerf-herder",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A companion service to mongod to keep long running queries from wrecking havoc",
   "author": {
         "name": "Dan Thurman",
